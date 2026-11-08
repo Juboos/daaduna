@@ -1,0 +1,35 @@
+id: u1-l07
+type: symbol
+title: "Hamza on alif"
+draft: true
+teaches: [alif_hamza_above, alif_hamza_below]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "This little sign is hamza. On top of alif, it is a short catch in the throat, like the break in 'uh-oh'."
+        cues: [{ at: "on top of alif", action: draw }]
+        visual: { type: letter, letter: أ }
+      - id: s2
+        narration: "Hamza can also sit under alif, with kasra. Now you can say: ana, I. Anta, you, to a man. Anti, you, to a woman."
+        cues: [{ at: "now you can say", action: show }]
+        visual: { type: arabic, ar: إ, tr: ʔi, then: { type: words, words: [{ ar: أنا }, { ar: أنْتَ }, { ar: أنْتِ }] } }
+  - kind: write
+    exercises:
+      - { type: trace, letter: أ, form: isolated }
+      - { type: trace, letter: إ, form: isolated }
+  - kind: listen
+    exercises:
+      - { type: soundPick, answer: أنْتِ, options: [أنْتَ, أنْتِ], listenFor: "ending '-ta' (to a man) or '-ti' (to a woman)?" }
+      - { type: listenPick, auto: 2 }
+  - kind: read
+    slides:
+      - { id: r1, narration: "Words you can read now.", visual: { type: readingSet } }
+  - kind: speak
+    exercises:
+      - { type: shadow, term: أنا, listenFor: "the small catch before the first 'a'" }
+  - kind: exercises
+    exercises:
+      - { type: match, auto: 4 }
+      - { type: dictation, word: أنا }
+      - { type: build, word: أَب }

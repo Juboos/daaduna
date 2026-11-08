@@ -1,0 +1,46 @@
+id: u1-l10
+type: checkpoint
+title: "Unit 1 checkpoint"
+draft: true
+teaches: []
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Well done. Let's review Unit One. At the end you will trace your own name in Arabic."
+        visual: { type: name }
+  - kind: write
+    exercises:
+      - { type: trace, letter: ي, form: final }
+      - { type: trace, letter: ن, form: final }
+  - kind: listen
+    exercises:
+      - { type: listenPick, auto: 3 }
+  - kind: read
+    slides:
+      - { id: r1, narration: "Every word you can read so far.", visual: { type: words, words: [{ ar: بَيْت }, { ar: باب }, { ar: بِنْت }, { ar: ابْن }, { ar: أَب }, { ar: تِين }, { ar: نَبات }, { ar: أنا }] } }
+  - kind: speak
+    exercises:
+      - type: shadow
+        prompt: "Unit 1 recording: read these three words aloud, then send it to your tutor."
+        term: { ar: "بَيْت باب بِنْت", tr: "bayt · bāb · bint", en: "house · door · girl" }
+        listenFor: "the 'ay' in bayt and the long 'aa' in baab"
+        submit: required
+  - kind: exercises
+    exercises:
+      - { type: match, auto: 5 }
+      - { type: dictation, auto: 2 }
+      - { type: build, auto: 2 }
+      - { type: flashcards, auto: 8 }
+      - type: sheet
+        prompt: "Unit 1 writing sheet: your name, your letters, your first words."
+        title: "Unit 1 · My name and my letters"
+        rows:
+          - { ghost: $name, repeat: 2, label: "My name" }
+          - { ghost: ب, repeat: 6, label: "baa" }
+          - { ghost: ت, repeat: 6, label: "taa" }
+          - { ghost: ن, repeat: 6, label: "nuun" }
+          - { ghost: ي, repeat: 6, label: "yaa" }
+          - { ghost: بَيْت, repeat: 3, label: "house" }
+          - { ghost: باب, repeat: 3, label: "door" }
+          - { empty: 1, label: "Free practice" }

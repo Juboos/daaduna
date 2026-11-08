@@ -1,0 +1,30 @@
+# Core vocabulary: concrete, picturable words first (PLAN.md "concrete nouns first").
+# Our own list, so it is not limited to Al-Said. Fully voweled. DRAFT: please check glosses.
+# priority: 1 = lead the reading set; 2 = useful phrase words.
+- { ar: بَيْت,   en: house,          tr: bayt,    concrete: true,  priority: 1, image: house }
+- { ar: باب,    en: door,           tr: bāb,     concrete: true,  priority: 1, image: door }
+- { ar: بِنْت,   en: girl; daughter, tr: bint,    concrete: true,  priority: 1, image: girl }
+- { ar: ابْن,   en: son,            tr: ibn,     concrete: true,  priority: 1, image: boy }
+- { ar: أَب,    en: father,         tr: ʔab,     concrete: true,  priority: 1, image: father }
+- { ar: تِين,   en: figs,           tr: tīn,     concrete: true,  priority: 1, image: figs }
+- { ar: ناب,    en: fang,           tr: nāb,     concrete: true,  priority: 1, image: fang }
+- { ar: نَبات,  en: plant,          tr: nabāt,   concrete: true,  priority: 1, image: plant }
+- { ar: بَيْتي,  en: my house,       tr: baytī,   concrete: true,  priority: 1, image: house }
+- { ar: أنا,    en: I,              tr: ʔanā,    concrete: false, priority: 2 }
+- { ar: أنْتَ,   en: you (m),        tr: ʔanta,   concrete: false, priority: 2 }
+- { ar: أنْتِ,   en: you (f),        tr: ʔanti,   concrete: false, priority: 2 }
+- { ar: اثْنان, en: two,            tr: ithnān,  concrete: false, priority: 2 }
+# Later units (become readable automatically once their letters are taught)
+- { ar: تُفّاحة, en: apple,          tr: tuffāḥa, concrete: true,  priority: 1, image: apple }
+- { ar: قَلَم,   en: pen,            tr: qalam,   concrete: true,  priority: 1, image: pen }
+- { ar: كَلْب,   en: dog,            tr: kalb,    concrete: true,  priority: 1, image: dog }
+- { ar: قِطّة,   en: cat,            tr: qiṭṭa,   concrete: true,  priority: 1, image: cat }
+- { ar: قَمَر,   en: moon,           tr: qamar,   concrete: true,  priority: 1, image: moon }
+- { ar: كِتاب,  en: book,           tr: kitāb,   concrete: true,  priority: 1, image: book }
+- { ar: ماء,    en: water,          tr: māʔ,     concrete: true,  priority: 1, image: water }
+- { ar: لَبَن,   en: milk; yoghurt,  tr: laban,   concrete: true,  priority: 1, image: milk }
+- { ar: فيل,    en: elephant,       tr: fīl,     concrete: true,  priority: 1, image: elephant }
+- { ar: بَحْر,   en: sea,            tr: baḥr,    concrete: true,  priority: 1, image: sea }
+- { ar: شَمْس,   en: sun,            tr: shams,   concrete: true,  priority: 1, image: sun }
+- { ar: وَلَد,   en: boy,            tr: walad,   concrete: true,  priority: 1, image: boy }
+- { ar: سَيّارة, en: car,            tr: sayyāra, concrete: true,  priority: 1, image: car }

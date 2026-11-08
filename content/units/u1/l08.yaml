@@ -1,0 +1,23 @@
+id: u1-l08
+type: review
+title: "Joining and non-connectors"
+draft: true
+teaches: []
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Arabic letters hold hands. Baa, yaa and taa join to make bayt."
+        visual: { type: direction, ar: بَيْت }
+      - id: s2
+        narration: "Alif never joins the letter after it. Look at baab: the alif stands alone, and the second baa starts fresh."
+        visual: { type: words, words: [{ ar: باب }, { ar: نَبات }] }
+  - kind: write
+    exercises:
+      - { type: trace, letter: ا, form: final }
+      - { type: trace, letter: ب, form: final }
+  - kind: exercises
+    exercises:
+      - { type: build, word: باب, prompt: "Build the word. Watch alif refuse to join on the left." }
+      - { type: build, word: بِنْت }
+      - { type: trueFalse, ar: ا, claim: "Alif joins the letter that comes after it.", answer: false }

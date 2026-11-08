@@ -1,0 +1,16 @@
+id: u0-l2
+type: symbol
+title: Right to left
+draft: true
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Arabic is written from right to left. Your eyes start on the right side of the line."
+        visual: { type: direction, ar: بَيْت }
+      - id: s2
+        narration: "Books open from what an English reader would call the back. The first page is on the right."
+        visual: { type: text, text: "The first page of an Arabic book is on the right." }
+      - id: s3
+        narration: "Numbers are the exception. Arabic digits are read from left to right, just like in English."
+        visual: { type: arabic, ar: "١٢٣", tr: "1 2 3", en: "one hundred and twenty-three", dir: ltr-note }

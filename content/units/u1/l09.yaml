@@ -1,0 +1,22 @@
+id: u1-l09
+type: review
+title: "Numbers ١–٥"
+draft: true
+teaches: [digit_1, digit_2, digit_3, digit_4, digit_5]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "These are the Arabic digits one to five. Numbers are read from left to right, even inside Arabic text."
+        visual: { type: arabic, ar: "١ ٢ ٣ ٤ ٥", tr: "1 2 3 4 5" }
+      - id: s2
+        narration: "Two is ithnaan. You can already read it."
+        visual: { type: arabic, ar: اثْنان, tr: ithnān, en: two }
+  - kind: listen
+    exercises:
+      - { type: soundPick, answer: "٣", options: ["٢", "٣", "٤"] }
+  - kind: exercises
+    exercises:
+      - { type: order, items: ["١", "٢", "٣", "٤", "٥"], hint: "Smallest first, left to right." }
+      - { type: trueFalse, ar: "٤", claim: "This is five.", answer: false }
+      - { type: trueFalse, ar: "٢", claim: "This is two.", answer: true }

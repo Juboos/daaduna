@@ -1,0 +1,16 @@
+id: u0-l1
+type: review
+title: Welcome to Daaduna
+draft: true   # placeholder text until your Word lesson arrives
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Welcome to Daaduna. Daaduna means 'our ḍād', the letter that gives Arabic its nickname, the language of ḍād."
+        visual: { type: arabic, ar: ضادُنا, tr: ḍāduna, en: our ḍād }
+      - id: s2
+        narration: "In this course you will learn to read, write, hear and say Modern Standard Arabic, from the very first letter."
+        visual: { type: skills }
+      - id: s3
+        narration: "Here is your name. Soon you will see it written in Arabic, and by the end of Unit One you will write it yourself."
+        visual: { type: name }

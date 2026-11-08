@@ -1,0 +1,37 @@
+id: u1-l04
+type: letter
+title: "Nuun and yaa"
+draft: true
+teaches: [nun, ya]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Nuun is a deep round bowl with one dot above. It sounds like 'n'."
+        cues: [{ at: "round bowl", action: draw }]
+        visual: { type: letter, letter: ن }
+      - id: s2
+        narration: "Yaa sounds like 'y'. At the start of a word it looks like baa, but with two dots below."
+        cues: [{ at: "start of a word", action: draw }]
+        visual: { type: letter, letter: ي }
+  - kind: write
+    exercises:
+      - { type: trace, letter: ن, form: isolated }
+      - { type: trace, letter: ن, form: initial }
+      - { type: trace, letter: ي, form: isolated }
+  - kind: listen
+    exercises:
+      - { type: soundPick, answer: نا, options: [نا, يا, با], listenFor: "'n', 'y' or 'b'?" }
+      - { type: listenPick, auto: 2 }
+  - kind: read
+    slides:
+      - { id: r1, narration: "Words you can read now.", visual: { type: readingSet } }
+  - kind: speak
+    exercises:
+      - { type: shadow, term: نَبات, listenFor: "three syllables: na-baa-t" }
+  - kind: exercises
+    exercises:
+      - { type: match, auto: 3 }
+      - { type: build, word: نَبات }
+      - { type: dictation, word: ناب }
+      - { type: flashcards, auto: 4 }

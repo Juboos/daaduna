@@ -1,0 +1,36 @@
+id: u1-l06
+type: symbol
+title: "Sukun and the ay sound"
+draft: true
+teaches: [sukun]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Sukun is a small circle. It means: no vowel here. The letter stops."
+        cues: [{ at: "small circle", action: draw }]
+        visual: { type: mark, mark: sukun }
+      - id: s2
+        narration: "Fatha, then yaa with sukun, makes the sound 'ay', as in 'bye'. Bayt means house. Bint means girl."
+        cues: [{ at: "bayt", action: show }]
+        visual: { type: arabic, ar: بَيْ, tr: bay, then: { type: words, words: [{ ar: بَيْت }, { ar: بِنْت }] } }
+  - kind: write
+    exercises:
+      - { type: trace, mark: sukun }
+      - { type: trace, letter: ب, form: medial }
+  - kind: listen
+    exercises:
+      - { type: listenPick, auto: 3 }
+  - kind: read
+    slides:
+      - { id: r1, narration: "Words you can read now. The shaded ones are things you can picture.", visual: { type: readingSet } }
+  - kind: speak
+    exercises:
+      - { type: shadow, term: بَيْت, listenFor: "'ay' as in 'bye', and a crisp 't' at the end" }
+  - kind: exercises
+    exercises:
+      - { type: match, auto: 4 }
+      - { type: build, auto: 2 }
+      - { type: dictation, auto: 2 }
+      - { type: fillBlank, auto: 1 }
+      - { type: flashcards, auto: 6 }

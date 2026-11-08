@@ -1,0 +1,23 @@
+# Additions to Al-Said entries, keyed "rank:form". DRAFT glosses for you to check.
+# concrete: true marks picturable nouns so they sort first.
+"2:1":   { en: "to (+ verb); that", tr: ʔan }
+"9:1":   { en: "if", tr: ʔin }
+"12:1":  { en: I, tr: ʔanā }
+"19:1":  { en: you (m), tr: ʔanta }
+"19:2":  { en: you (f), tr: ʔanti }
+"26:1":  { en: "O (calling someone)", tr: yā }
+"38:1":  { en: "that is; i.e.", tr: ʔay }
+"51:1":  { en: between, tr: bayn }
+"106:1": { en: where?, tr: ʔayna }
+"114:1": { en: son, tr: ibn, concrete: true }
+"122:1": { en: father, tr: ʔab, concrete: true }
+"181:1": { en: he comes, tr: yaʔtī }
+"220:1": { en: house, tr: bayt, concrete: true }
+"419:1": { en: door, tr: bāb, concrete: true }
+"510:1": { en: statement, tr: bayān }
+"407:1": { en: book, tr: kitāb, concrete: true }
+"692:1": { en: water, tr: māʔ, concrete: true }
+"562:1": { en: boy; child, tr: walad, concrete: true }
+"170:1": { en: car, tr: sayyāra, concrete: true }
+"990:1": { en: sun, tr: shams, concrete: true }
+"835:1": { en: sea, tr: baḥr, concrete: true }

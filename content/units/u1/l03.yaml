@@ -1,0 +1,35 @@
+id: u1-l03
+type: letter
+title: "Taa and thaa"
+draft: true
+teaches: [ta, tha]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Taa has the same shape as baa, with two dots above. It sounds like 't'."
+        cues: [{ at: "two dots", action: draw }]
+        visual: { type: letter, letter: ت }
+      - id: s2
+        narration: "Thaa has three dots above. It sounds like 'th' in 'think'."
+        cues: [{ at: "three dots", action: draw }]
+        visual: { type: letter, letter: ث }
+      - id: s3
+        narration: "Same shape, different dots: baa, taa, thaa."
+        visual: { type: words, words: [{ ar: ب, tr: bāʔ }, { ar: ت, tr: tāʔ }, { ar: ث, tr: thāʔ }] }
+  - kind: write
+    exercises:
+      - { type: trace, letter: ت, form: isolated }
+      - { type: trace, letter: ث, form: isolated }
+      - { type: trace, letter: ت, form: initial }
+  - kind: listen
+    exercises:
+      - { type: soundPick, answer: تا, options: [تا, ثا], listenFor: "'t' or 'th' as in 'think'?" }
+      - { type: soundPick, answer: ثا, options: [تا, ثا, با], listenFor: "'t', 'th' or 'b'?" }
+  - kind: speak
+    exercises:
+      - { type: shadow, term: { ar: ثا, tr: thā }, listenFor: "the tongue peeks out between the teeth" }
+  - kind: exercises
+    exercises:
+      - { type: trueFalse, ar: ث, claim: "This letter has three dots above.", answer: true }
+      - { type: trueFalse, ar: ت, claim: "This is thaa.", answer: false }

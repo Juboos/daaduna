@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+}
+
+/* Lapis and saffron: lively accents on calm, warm neutrals. */
+:root {
+  --ink: #1d2030;
+  --muted: #676c7e;
+  --paper: #f7f6f2;
+  --card: #ffffff;
+  --card-2: #f0eee8;
+  --line: #e4e1d8;
+  --brand: #3d5bd9;
+  --brand-soft: #e9edff;
+  --on-brand: #ffffff;
+  --accent: #d9930f;
+  --accent-soft: #fdf2d8;
+  --success: #23946a;
+  --success-soft: #e1f4ea;
+  --danger: #d9534a;
+  --danger-soft: #fcebe9;
+  --glow: radial-gradient(60rem 30rem at 85% -10%, #e9edff 0%, transparent 60%), radial-gradient(40rem 24rem at -10% 110%, #fdf2d8 0%, transparent 60%);
+  --ar-font: 'Noto Naskh Arabic', serif;
+  --font-scale: 1;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --ink: #e8e9f0;
+  --muted: #9a9fb2;
+  --paper: #11131a;
+  --card: #191c26;
+  --card-2: #20242f;
+  --line: #2b303d;
+  --brand: #8098ff;
+  --brand-soft: #232b4d;
+  --on-brand: #0f1220;
+  --accent: #f0b43c;
+  --accent-soft: #3a2e15;
+  --success: #4fc690;
+  --success-soft: #163126;
+  --danger: #ff7d73;
+  --danger-soft: #3b1e1d;
+  --glow: radial-gradient(60rem 30rem at 85% -10%, #1c2446 0%, transparent 60%), radial-gradient(40rem 24rem at -10% 110%, #2a2213 0%, transparent 60%);
+  color-scheme: dark;
+}
+
+html { font-size: calc(16px * var(--font-scale)); }
+body { background: var(--paper); background-image: var(--glow); background-attachment: fixed; color: var(--ink); font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; }
+
+/* All Arabic goes through <Ar>, which adds this class. */
+.ar {
+  font-family: var(--ar-font);
+  unicode-bidi: isolate;
+  line-height: 1.9;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+.ar-hide-marks .ar-marks-hidden { display: none; }
+
+@keyframes rtl-sweep { from { transform: translateX(0); opacity: 0 } 15% { opacity: 1 } to { transform: translateX(-100%); opacity: 0 } }
+@keyframes tile-reveal { from { transform: rotateY(90deg); opacity: 0 } to { transform: rotateY(0); opacity: 1 } }
+.tile-reveal { animation: tile-reveal 600ms ease-out both; }
+
+@keyframes stroke-draw { to { stroke-dashoffset: 0 } }
+@keyframes dot-pop { to { transform: scale(1) } }
+@keyframes pop-in { from { transform: scale(.85); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+.pop-in { animation: pop-in 220ms ease-out both; }
+@keyframes karaoke { from { background-size: 0% 100% } to { background-size: 100% 100% } }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

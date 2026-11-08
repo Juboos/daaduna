@@ -1,0 +1,35 @@
+id: u1-l02
+type: letter
+title: "Baa"
+draft: true
+teaches: [ba]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "This is baa. Start on the right, sweep left along the line, then add one dot below."
+        cues: [{ at: "start", action: draw }]
+        visual: { type: letter, letter: ب }
+      - id: s2
+        narration: "Baa with fatha says 'ba'. With alif after it, the sound is long: 'baa'. Now you can read your first word: baab, door."
+        cues: [{ at: "first word", action: show }]
+        visual: { type: words, words: [{ ar: بَ, tr: ba }, { ar: با, tr: bā }], then: { type: arabic, ar: باب, tr: bāb, en: door } }
+  - kind: write
+    exercises:
+      - { type: trace, letter: ب, form: isolated }
+      - { type: trace, letter: ب, form: initial }
+      - { type: trace, letter: ب, form: final }
+  - kind: listen
+    exercises:
+      - { type: soundPick, answer: با, options: [بَ, با], listenFor: "a short 'a' or a long 'aa'?" }
+      - { type: soundPick, answer: بَ, options: [بَ, با], listenFor: "a short 'a' or a long 'aa'?" }
+  - kind: read
+    slides:
+      - { id: r1, narration: "Words you can read now.", visual: { type: readingSet } }
+  - kind: speak
+    exercises:
+      - { type: shadow, term: باب, listenFor: "a long 'aa' in the middle" }
+  - kind: exercises
+    exercises:
+      - { type: build, word: باب }
+      - { type: trueFalse, ar: ب, claim: "This letter has one dot below.", answer: true }

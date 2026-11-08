@@ -1,0 +1,13 @@
+id: u0-l4
+type: review
+title: The Arabic keyboard
+draft: true
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "You will type Arabic on the on-screen keyboard. Letters you have learned light up as you go."
+        visual: { type: text, text: "The on-screen keyboard shows only the letters you know." }
+      - id: s2
+        narration: "You can also add an Arabic keyboard to your phone or tablet. We'll show you how in the settings."
+        visual: { type: text, text: "Optional: add an Arabic keyboard in your device settings." }

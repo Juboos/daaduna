@@ -1,0 +1,40 @@
+id: u1-l05
+type: symbol
+title: "Damma and kasra; long ā and ī"
+draft: true
+teaches: [damma, kasra]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Damma is a small curl above the letter. It adds a short 'u' sound."
+        cues: [{ at: "small curl", action: draw }]
+        visual: { type: mark, mark: damma }
+      - id: s2
+        narration: "Kasra is a small line below the letter. It adds a short 'i' sound."
+        cues: [{ at: "small line", action: draw }]
+        visual: { type: mark, mark: kasra }
+      - id: s3
+        narration: "Ba, bu, bi. And with a long vowel: baa and bee. Now read: teen, figs."
+        cues: [{ at: "now read", action: show }]
+        visual: { type: words, words: [{ ar: بَ, tr: ba }, { ar: بُ, tr: bu }, { ar: بِ, tr: bi }, { ar: با, tr: bā }, { ar: بي, tr: bī }], then: { type: arabic, ar: تِين, tr: tīn, en: figs } }
+  - kind: write
+    exercises:
+      - { type: trace, mark: damma }
+      - { type: trace, mark: kasra }
+  - kind: listen
+    exercises:
+      - { type: soundPick, answer: بُ, options: [بَ, بُ, بِ], listenFor: "short a, u or i?" }
+      - { type: soundPick, answer: بِ, options: [بَ, بُ, بِ], listenFor: "short a, u or i?" }
+      - { type: soundPick, answer: بي, options: [بِ, بي], listenFor: "short 'i' or long 'ee'?" }
+  - kind: read
+    slides:
+      - { id: r1, narration: "Words you can read now.", visual: { type: readingSet } }
+  - kind: speak
+    exercises:
+      - { type: shadow, term: تِين, listenFor: "a long 'ee', held twice as long as kasra" }
+  - kind: exercises
+    exercises:
+      - { type: build, word: تِين }
+      - { type: fillBlank, word: تِين, blank: 1, options: [ي, ا, ن] }
+      - { type: trueFalse, ar: بِ, claim: "The mark under the letter is kasra.", answer: true }

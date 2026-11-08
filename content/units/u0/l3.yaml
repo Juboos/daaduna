@@ -1,0 +1,16 @@
+id: u0-l3
+type: review
+title: How a lesson works
+draft: true
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "Every lesson has six steps: learn, write, listen, read, speak, and exercises."
+        visual: { type: steps }
+      - id: s2
+        narration: "Tap any Arabic word to hear it. Tap the tortoise to hear it slowly."
+        visual: { type: arabic, ar: باب, tr: bāb, en: door }
+      - id: s3
+        narration: "Lessons never lock you out. When you finish one, press Completed and the next one opens."
+        visual: { type: text, text: "Scores give you feedback. They never block you." }

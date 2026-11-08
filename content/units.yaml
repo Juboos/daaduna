@@ -1,0 +1,7 @@
+- { id: u0, order: 0, title: Welcome,                    milestone: Your name appears from sign-up }
+- { id: u1, order: 1, title: First Words,                milestone: Writing sheet + recording }
+- { id: u2, order: 2, title: Core Words,                 milestone: Writing sheet + recording }
+- { id: u3, order: 3, title: Throat and Back,            milestone: Writing sheet + recording }
+- { id: u4, order: 4, title: Non-Connectors,             milestone: Writing sheet + recording }
+- { id: u5, order: 5, title: Sibilants and Emphatics,    milestone: Writing sheet + recording }
+- { id: u6, order: 6, title: Putting It Together,        milestone: Final test + recording }

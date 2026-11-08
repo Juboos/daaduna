@@ -1,0 +1,27 @@
+id: u1-l01
+type: letter
+title: "Alif and fatha"
+draft: true   # structure and exercises are real; slide wording is placeholder until your Word lesson
+teaches: [alif, fatha]
+steps:
+  - kind: learn
+    slides:
+      - id: s1
+        narration: "This is alif. Alif is written from the top, straight down."
+        cues: [{ at: "top", action: draw }]
+        visual: { type: letter, letter: ا }
+      - id: s2
+        narration: "This small slanted line above a letter is fatha. It adds a short 'a' sound."
+        cues: [{ at: "slanted", action: draw }]
+        visual: { type: mark, mark: fatha }
+  - kind: write
+    exercises:
+      - { type: trace, letter: ا, form: isolated }
+      - { type: trace, letter: ا, form: final }
+      - { type: trace, mark: fatha }
+  - kind: speak
+    exercises:
+      - { type: shadow, term: { ar: ا, tr: alif, en: the letter alif } }
+  - kind: exercises
+    exercises:
+      - { type: trueFalse, ar: ا, claim: "This letter is alif.", answer: true }

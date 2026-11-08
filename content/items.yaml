@@ -1,0 +1,66 @@
+# Taught items. They drive readability and the covered letter table.
+# group: letters | variants | marks | digits ; order = position on the table.
+letters:
+  - { id: alif,  glyph: ا, name: alif }
+  - { id: ba,    glyph: ب, name: bāʔ }
+  - { id: ta,    glyph: ت, name: tāʔ }
+  - { id: tha,   glyph: ث, name: thāʔ }
+  - { id: jim,   glyph: ج, name: jīm }
+  - { id: hha,   glyph: ح, name: ḥāʔ }
+  - { id: kha,   glyph: خ, name: khāʔ }
+  - { id: dal,   glyph: د, name: dāl }
+  - { id: dhal,  glyph: ذ, name: dhāl }
+  - { id: ra,    glyph: ر, name: rāʔ }
+  - { id: zay,   glyph: ز, name: zāy }
+  - { id: sin,   glyph: س, name: sīn }
+  - { id: shin,  glyph: ش, name: shīn }
+  - { id: sad,   glyph: ص, name: ṣād }
+  - { id: dad,   glyph: ض, name: ḍād }
+  - { id: tta,   glyph: ط, name: ṭāʔ }
+  - { id: zza,   glyph: ظ, name: ẓāʔ }
+  - { id: ayn,   glyph: ع, name: ʕayn }
+  - { id: ghayn, glyph: غ, name: ghayn }
+  - { id: fa,    glyph: ف, name: fāʔ }
+  - { id: qaf,   glyph: ق, name: qāf }
+  - { id: kaf,   glyph: ك, name: kāf }
+  - { id: lam,   glyph: ل, name: lām }
+  - { id: mim,   glyph: م, name: mīm }
+  - { id: nun,   glyph: ن, name: nūn }
+  - { id: ha,    glyph: ه, name: hāʔ }
+  - { id: waw,   glyph: و, name: wāw }
+  - { id: ya,    glyph: ي, name: yāʔ }
+variants:
+  - { id: alif_hamza_above, glyph: أ, name: hamza on alif }
+  - { id: alif_hamza_below, glyph: إ, name: hamza under alif }
+  - { id: waw_hamza,        glyph: ؤ, name: hamza on wāw }
+  - { id: ya_hamza,         glyph: ئ, name: hamza on yāʔ }
+  - { id: hamza,            glyph: ء, name: hamza alone }
+  - { id: alif_madda,       glyph: آ, name: alif madda }
+  - { id: ta_marbuta,       glyph: ة, name: tāʔ marbūṭa }
+  - { id: alif_maqsura,     glyph: ى, name: alif maqṣūra }
+  - { id: lam_alif,         glyph: لا, name: lām-alif }
+marks:
+  - { id: fatha,       mark: fatha,       name: fatḥa }
+  - { id: damma,       mark: damma,       name: ḍamma }
+  - { id: kasra,       mark: kasra,       name: kasra }
+  - { id: sukun,       mark: sukun,       name: sukūn }
+  - { id: shadda,      mark: shadda,      name: shadda }
+  - { id: tanwin_fath, mark: tanwin_fath, name: tanwīn fatḥ }
+  - { id: tanwin_damm, mark: tanwin_damm, name: tanwīn ḍamm }
+  - { id: tanwin_kasr, mark: tanwin_kasr, name: tanwīn kasr }
+  - { id: dagger_alif, mark: dagger_alif, name: dagger alif }
+digits:
+  - { id: digit_0, glyph: ٠, name: ṣifr }
+  - { id: digit_1, glyph: ١, name: wāḥid }
+  - { id: digit_2, glyph: ٢, name: ithnān }
+  - { id: digit_3, glyph: ٣, name: thalātha }
+  - { id: digit_4, glyph: ٤, name: arbaʕa }
+  - { id: digit_5, glyph: ٥, name: khamsa }
+  - { id: digit_6, glyph: ٦, name: sitta }
+  - { id: digit_7, glyph: ٧, name: sabʕa }
+  - { id: digit_8, glyph: ٨, name: thamāniya }
+  - { id: digit_9, glyph: ٩, name: tisʕa }
+# Mechanics: taught, not on the table, but count for readability.
+mechanics:
+  - { id: sun_article, name: sun-letter article }
+  - { id: alif_wasla,  name: hamzat al-waṣl }
