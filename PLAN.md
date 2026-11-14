@@ -46,7 +46,7 @@ Function words (في، ما، بين، أنْ) are frequent but make poor first 
 | Audio | HTMLAudio / Web Audio. `MediaRecorder` for recording. Waveform and pitch drawn client-side. | No server processing needed. |
 | Backend | **Supabase**: Postgres, Auth, Storage, Row-Level Security, Edge Functions | Free tier at launch. Relational data fits progress, review queues and roots well. RLS enforces the student/tutor/admin roles in the database. |
 | Email | **Resend** (custom SMTP for Supabase Auth, plus notification emails) | Supabase's built-in email is limited to a few messages an hour. Resend's free tier is 3,000 a month. |
-| Hosting | **Cloudflare Pages** | Free, unlimited bandwidth, commercial use allowed. Vercel's free plan forbids commercial use. |
+| Hosting | **Netlify** (switched from Cloudflare on 2026-11-14) | The owner knows it; free plan allows commercial use. Watch the bandwidth allowance as audio use grows; Cloudflare is the fallback. |
 | Errors | Sentry (free tier) | Needed to catch iPad and Safari-only bugs. |
 | Tests | Vitest (Arabic normalization, readability, stroke checker), Playwright (flows, mobile emulation), plus manual tests on a real iPad and iPhone | Safari is where the risk is. |
 
@@ -57,7 +57,7 @@ Function words (في، ما، بين، أنْ) are frequent but make poor first 
 ```
 content/ (YAML lessons, audio, stroke data, sheets)  ──build script──▶  Supabase (lesson docs as JSON, audio in Storage)
                                                                          ▲
-React PWA (Cloudflare Pages) ──auth──▶ Supabase Auth                     │ RLS: free lessons for all, paid lessons with entitlement
+React PWA (Netlify) ──auth──▶ Supabase Auth                     │ RLS: free lessons for all, paid lessons with entitlement
           │                                                              │
           ├── reads lessons, reading sets, word data ────────────────────┘
           ├── writes progress, attempts, SRS state, submissions (Storage + rows)
@@ -410,7 +410,7 @@ Assumptions: about 4–5 hours of narration at 64 kbps AAC (~150 MB), word and p
 
 | Item | Launch (≤100 students) | 1,000 students |
 |---|---|---|
-| Hosting (Cloudflare Pages) | $0 | $0 |
+| Hosting (Netlify) | $0 | $0 on the free plan if within its allowance; Pro is ~$19/month |
 | Supabase (DB, Auth, Storage, Edge Functions) | $0 while building, **$25 Pro** from public launch (8 GB DB, 100 GB storage, 250 GB egress) | $25–35. Storage ~10–20 GB, egress ~50–100 GB, inside Pro. If egress grows, move public audio to Cloudflare R2 (no egress fees, ~$0–2). |
 | Email (Resend) | $0 (3,000 a month) | ~$20 (about 10–30k emails a month) |
 | Domain | ~$1 (≈$12–15 a year) | ~$1 |

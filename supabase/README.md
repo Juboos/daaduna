@@ -10,20 +10,21 @@ environment variables on the host). Without them it falls back to the browser-on
 
 To make an account admin: Table Editor → `profiles` → set `role` to `admin` (works after 0003).
 
-## 2. Hosting (Cloudflare Pages)
-1. Workers & Pages → Create → Pages → Connect to Git → pick the private `daaduna` repo.
-2. Build command `npm run build`, output directory `dist`.
-3. Environment variables: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` (same values as `.env.local`), `NODE_VERSION` = `22`.
-4. The build reads the published word subset in `content/vocab/alsaid-published.json` and the committed audio clips;
-   the private spreadsheet and the macOS voice are not needed on the build server.
+## 2. Hosting (Netlify)
+Live at **https://daaduna.netlify.app**, built from `main` on every push.
+- `netlify.toml` sets the build (`npm run build` → `dist`, Node 22) and sends unknown paths to `index.html`.
+- Site configuration → Environment variables: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` (same values as
+  `.env.local`). Vite bakes them in at build time, so redeploy after changing them.
+- The build reads the published word subset in `content/vocab/alsaid-published.json` and the committed audio clips;
+  the private spreadsheet and the macOS voice are not needed on the build server.
 
 ## 3. Supabase Auth → URL Configuration
-- Site URL: your Pages address (e.g. `https://daaduna.pages.dev`, later your domain).
-- Redirect URLs: `https://<your-address>/reset-password` and `http://localhost:5173/reset-password`.
+- Site URL: `https://daaduna.netlify.app` (later your domain).
+- Redirect URLs: `https://daaduna.netlify.app/reset-password` and `http://localhost:5173/reset-password`.
 
 ## 4. Email (domain + Resend)
-1. Buy a domain (Cloudflare Registrar is at-cost) and create a Resend account; add the domain in Resend and add
-   its DNS records (SPF, DKIM) in Cloudflare.
+1. Buy a domain (Netlify can register one, or any registrar) and create a Resend account; add the domain in Resend
+   and add its DNS records (SPF, DKIM) where the domain's DNS is managed.
 2. Supabase → Authentication → SMTP Settings: host `smtp.resend.com`, port `465`, user `resend`,
    password = a Resend API key, sender `hello@<your domain>`. Sign-up and password-reset emails now come from you.
 3. Edge Function: Supabase → Edge Functions → Deploy a new function → name `send-email` → paste

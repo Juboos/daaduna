@@ -1,0 +1,16 @@
+# Netlify: builds the app from GitHub on every push to main.
+# The Supabase values (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY) are set in the Netlify UI:
+# Site configuration → Environment variables. Vite bakes them in at build time.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Single-page app: paths like /lesson/u1-l02 load index.html and the app's router takes over.
+# Real files (assets, audio) are served first because this rule is not forced.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
