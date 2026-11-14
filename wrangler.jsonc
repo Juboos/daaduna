@@ -1,0 +1,10 @@
+// Cloudflare Workers config: serves the built app (dist/) as static assets.
+// "single-page-application" sends unknown paths like /lesson/u1-l02 to index.html so the app's router handles them.
+{
+  "name": "daaduna",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
