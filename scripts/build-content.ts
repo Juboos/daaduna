@@ -73,33 +73,49 @@ for (const c of y('content/vocab/core.yaml') as any[]) {
   })
 }
 
+// Al-Said rows come from the private spreadsheet when it is here. Otherwise (e.g. on the hosting build
+// server) from content/vocab/alsaid-published.json: only the rows the published units actually use, which
+// is the same subset the app ships to logged-in students anyway. The full list never enters git.
+type AlSaidRow = { rank: number; form: number; printed: string; pos: string | null }
 const xlsx = join(ROOT, 'data/private/AlSaid_2023_MSA_Common_Words_1000.xlsx')
-if (existsSync(xlsx)) {
-  const notes = y('content/vocab/alsaid-notes.yaml') ?? {}
+const SNAPSHOT = join(ROOT, 'content/vocab/alsaid-published.json')
+const rows: AlSaidRow[] = []
+const fromSpreadsheet = existsSync(xlsx)
+if (fromSpreadsheet) {
   const wb = new ExcelJS.Workbook()
   await wb.xlsx.readFile(xlsx)
-  const ws = wb.getWorksheet('Word List')!
-  ws.eachRow((row, n) => {
+  wb.getWorksheet('Word List')!.eachRow((row, n) => {
     if (n === 1) return
     const v = (i: number) => { const x = row.getCell(i).value as any; return x == null ? null : String(x?.result ?? x) }
-    const rank = Number(v(1)), form = Number(v(2)), printed = v(3)
-    if (!printed) return
+    const printed = v(3)
+    if (printed) rows.push({ rank: Number(v(1)), form: Number(v(2)), printed, pos: v(5) })
+  })
+} else if (existsSync(SNAPSHOT)) {
+  rows.push(...JSON.parse(readFileSync(SNAPSHOT, 'utf8')))
+  console.log(`  word list: using published subset (${rows.length} rows); private spreadsheet not present`)
+} else {
+  console.warn('! word list not found, building with core vocabulary only')
+}
+const rowWord = new Map<AlSaidRow, Word>()
+{
+  const notes = y('content/vocab/alsaid-notes.yaml') ?? {}
+  for (const r of rows) {
+    const { rank, form, printed, pos } = r
     const ar = clean(TATWEEL_FIX[printed] ?? printed)
     const bare = stripMarks(ar)
     const note = notes[`${rank}:${form}`] ?? {}
-    const pos = v(5)
     const unvoweled = ar === bare
     const core = words.find((w) => w.source === 'core' && (w.ar === ar || (unvoweled && w.bare === bare && !words.some((o) => o !== w && o.source === 'core' && o.bare === bare))))
-    if (core) { core.rank ??= rank; return } // core entry wins, gets the frequency rank
+    if (core) { core.rank ??= rank; rowWord.set(r, core); continue } // core entry wins, gets the frequency rank
     const concrete = !!note.concrete
     const priority = concrete ? 2 : pos && FUNCTION_POS.test(pos) ? 5 : pos === 'N\\CN' ? 3 : 4
-    words.push({
+    const w: Word = {
       id: `as:${rank}:${form}`, source: 'alsaid', rank, ar, bare, en: note.en ?? null, tr: note.tr ?? null,
       pos, concrete, priority, required: [...requiredItems(ar)],
-    })
-  })
-} else {
-  console.warn('! word list not found at data/private/, building with core vocabulary only')
+    }
+    words.push(w)
+    rowWord.set(r, w)
+  }
 }
 
 // ---- readability: first lesson whose cumulative teaches cover the word
@@ -156,6 +172,10 @@ writeFileSync(
   join(ROOT, 'src/generated/course.json'),
   JSON.stringify({ units, lessons: published, items, words: shipped, readingSets, strokes }, null, 1),
 )
+if (fromSpreadsheet) {
+  const shippedIds = new Set(shipped.map((w) => w.id))
+  writeFileSync(SNAPSHOT, JSON.stringify(rows.filter((r) => shippedIds.has(rowWord.get(r)!.id)), null, 1) + '\n')
+}
 console.log(`✓ ${published.length} lessons, ${shipped.length} readable words shipped (of ${words.length})`)
 for (const l of published) if (readingSets[l.id].length)
   console.log(`  ${l.id}: ${readingSets[l.id].map((id) => shipped.find((w) => w.id === id)!.ar).join('، ')}`)

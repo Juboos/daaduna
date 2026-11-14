@@ -145,7 +145,7 @@ export function Outbox() {
   return (
     <div className="space-y-3">
       <h1 className="text-2xl font-semibold">Email outbox</h1>
-      <p className="text-muted">Preview build: these emails are recorded here instead of being sent. Once Supabase and Resend are set up, an Edge Function sends them.</p>
+      <p className="text-muted">Emails queued by the database. Once the send-email function is set up, sent ones are delivered through Resend.</p>
       {mails.map((m) => (
         <Card key={m.id}>
           <p className="text-xs text-muted">To {m.to} · {new Date(m.createdAt).toLocaleString()}</p>

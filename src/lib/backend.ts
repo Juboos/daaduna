@@ -1,4 +1,5 @@
 import { getFile, putFile } from './blobstore'
+import { SupabaseBackend } from './supabase-backend'
 
 // Backend interface. Phase 1 uses LocalBackend (this browser only).
 // SupabaseBackend implements the same interface once the project exists (PLAN.md §1.2).
@@ -38,9 +39,15 @@ export const DEFAULT_SETTINGS: Settings = {
 }
 
 export interface Backend {
+  /** Load the signed-in user's data before the app renders (Supabase). */
+  init?(): Promise<void>
   signUp(email: string, password: string, nameEn: string): Promise<Profile>
   signIn(email: string, password: string): Promise<Profile>
   signOut(): Promise<void>
+  /** Email a password-reset link that opens /reset-password. */
+  requestPasswordReset(email: string): Promise<void>
+  /** Set a new password for the signed-in user (after following the reset link). */
+  updatePassword(password: string): Promise<void>
   currentUser(): Profile | null
   listProfiles(): Promise<Profile[]>
   setArabicName(userId: string, nameAr: string, nameArTr: string): Promise<void>
@@ -141,6 +148,13 @@ class LocalBackend implements Backend {
     return this.strip(u)
   }
   async signOut() { this.db.session = null; this.save() }
+  async requestPasswordReset() { throw new Error('Password reset needs the online version (Supabase).') }
+  async updatePassword(password: string) {
+    const u = this.db.users.find((x) => x.id === this.db.session)
+    if (!u) throw new Error('Not signed in.')
+    u.pwHash = await hash(password)
+    this.save()
+  }
   currentUser() {
     const u = this.db.users.find((x) => x.id === this.db.session)
     return u ? this.strip(u) : null
@@ -220,4 +234,11 @@ class LocalBackend implements Backend {
   }
 }
 
-export const backend: Backend = new LocalBackend()
+// Supabase when keys are configured (.env.local), otherwise the browser-only preview backend.
+const SB_URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
+const SB_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
+export const backendKind: 'supabase' | 'local' = SB_URL && SB_KEY ? 'supabase' : 'local'
+export const backend: Backend = SB_URL && SB_KEY ? new SupabaseBackend(SB_URL, SB_KEY) : new LocalBackend()
+
+// Dev only: lets test scripts drive the app's own backend instance instead of creating a second client.
+if (import.meta.env.DEV && typeof window !== 'undefined') (window as unknown as { __daaduna: Backend }).__daaduna = backend

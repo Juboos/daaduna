@@ -3,8 +3,10 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './index.css'
 import { AppProvider, useApp } from './lib/app-state'
+import { backend } from './lib/backend'
 import { Shell } from './components/ui'
 import { AuthPage } from './pages/Auth'
+import { ResetPassword } from './pages/ResetPassword'
 import { UnitMap } from './pages/UnitMap'
 import { LessonPlayer } from './pages/LessonPlayer'
 import { CoveredTable } from './pages/CoveredTable'
@@ -21,6 +23,7 @@ function Routed() {
     <Shell>
       <Routes>
         <Route path="/" element={<UnitMap />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/lesson/:id" element={<LessonPlayer />} />
         <Route path="/table" element={<CoveredTable />} />
         <Route path="/admin" element={<Admin />} />
@@ -37,10 +40,13 @@ function Routed() {
   )
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <AppProvider><Routed /></AppProvider>
-    </BrowserRouter>
-  </StrictMode>,
-)
+// Restore the session and load the user's data first (Supabase), then render.
+backend.init?.().catch((e) => console.error(e)).finally(() => {
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <BrowserRouter>
+        <AppProvider><Routed /></AppProvider>
+      </BrowserRouter>
+    </StrictMode>,
+  )
+})

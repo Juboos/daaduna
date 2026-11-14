@@ -21,46 +21,46 @@
   --color-danger-soft: var(--danger-soft);
 }
 
-/* Lapis and saffron: lively accents on calm, warm neutrals. */
+/* Earth and turquoise: warm clay, linen and umber, with one turquoise accent (zellige tile). */
 :root {
-  --ink: #1d2030;
-  --muted: #676c7e;
-  --paper: #f7f6f2;
-  --card: #ffffff;
-  --card-2: #f0eee8;
-  --line: #e4e1d8;
-  --brand: #3d5bd9;
-  --brand-soft: #e9edff;
-  --on-brand: #ffffff;
-  --accent: #d9930f;
-  --accent-soft: #fdf2d8;
-  --success: #23946a;
-  --success-soft: #e1f4ea;
-  --danger: #d9534a;
-  --danger-soft: #fcebe9;
-  --glow: radial-gradient(60rem 30rem at 85% -10%, #e9edff 0%, transparent 60%), radial-gradient(40rem 24rem at -10% 110%, #fdf2d8 0%, transparent 60%);
+  --ink: #2b2520;
+  --muted: #7a6d60;
+  --paper: #f6f0e6;
+  --card: #fffbf4;
+  --card-2: #efe6d7;
+  --line: #e2d6c3;
+  --brand: #8b5a3c;
+  --brand-soft: #f1e3d6;
+  --on-brand: #fffbf4;
+  --accent: #1d8a83;
+  --accent-soft: #d9efec;
+  --success: #5f7f2c;
+  --success-soft: #e9efda;
+  --danger: #b4452e;
+  --danger-soft: #f6e0d9;
+  --glow: radial-gradient(60rem 30rem at 85% -10%, #f0dfcc 0%, transparent 60%), radial-gradient(40rem 24rem at -10% 110%, #dcefec 0%, transparent 60%);
   --ar-font: 'Noto Naskh Arabic', serif;
   --font-scale: 1;
   color-scheme: light;
 }
 
 :root[data-theme='dark'] {
-  --ink: #e8e9f0;
-  --muted: #9a9fb2;
-  --paper: #11131a;
-  --card: #191c26;
-  --card-2: #20242f;
-  --line: #2b303d;
-  --brand: #8098ff;
-  --brand-soft: #232b4d;
-  --on-brand: #0f1220;
-  --accent: #f0b43c;
-  --accent-soft: #3a2e15;
-  --success: #4fc690;
-  --success-soft: #163126;
-  --danger: #ff7d73;
-  --danger-soft: #3b1e1d;
-  --glow: radial-gradient(60rem 30rem at 85% -10%, #1c2446 0%, transparent 60%), radial-gradient(40rem 24rem at -10% 110%, #2a2213 0%, transparent 60%);
+  --ink: #efe6da;
+  --muted: #a99b8b;
+  --paper: #191612;
+  --card: #221e1a;
+  --card-2: #2b2621;
+  --line: #3a332b;
+  --brand: #d09a72;
+  --brand-soft: #3a2b20;
+  --on-brand: #1c1713;
+  --accent: #52c2b8;
+  --accent-soft: #15322f;
+  --success: #a3c46a;
+  --success-soft: #262f1a;
+  --danger: #e8775f;
+  --danger-soft: #3a1f19;
+  --glow: radial-gradient(60rem 30rem at 85% -10%, #2c2119 0%, transparent 60%), radial-gradient(40rem 24rem at -10% 110%, #11302d 0%, transparent 60%);
   color-scheme: dark;
 }
 

@@ -1,0 +1,92 @@
+[
+ {
+  "rank": 2,
+  "form": 1,
+  "printed": "أنْ",
+  "pos": "P\\PO"
+ },
+ {
+  "rank": 9,
+  "form": 1,
+  "printed": "إنْ",
+  "pos": "P\\PO"
+ },
+ {
+  "rank": 12,
+  "form": 1,
+  "printed": "أنا",
+  "pos": "PRO"
+ },
+ {
+  "rank": 19,
+  "form": 1,
+  "printed": "أنْتَ",
+  "pos": "PRO"
+ },
+ {
+  "rank": 19,
+  "form": 2,
+  "printed": "أنْتِ",
+  "pos": "PRO"
+ },
+ {
+  "rank": 26,
+  "form": 1,
+  "printed": "يا",
+  "pos": "P\\PO"
+ },
+ {
+  "rank": 38,
+  "form": 1,
+  "printed": "أيْ",
+  "pos": "P\\PO"
+ },
+ {
+  "rank": 51,
+  "form": 1,
+  "printed": "بَيْن",
+  "pos": "ADV"
+ },
+ {
+  "rank": 106,
+  "form": 1,
+  "printed": "أيْنَ",
+  "pos": "P\\QU"
+ },
+ {
+  "rank": 114,
+  "form": 1,
+  "printed": "ابْن",
+  "pos": "N\\CN"
+ },
+ {
+  "rank": 122,
+  "form": 1,
+  "printed": "أب",
+  "pos": "N\\CN"
+ },
+ {
+  "rank": 181,
+  "form": 1,
+  "printed": "يأتي",
+  "pos": "V\\VI"
+ },
+ {
+  "rank": 220,
+  "form": 1,
+  "printed": "بَيْت",
+  "pos": "N\\CN"
+ },
+ {
+  "rank": 419,
+  "form": 1,
+  "printed": "باب",
+  "pos": "N\\CN"
+ },
+ {
+  "rank": 510,
+  "form": 1,
+  "printed": "بَيان",
+  "pos": "N\\CN"
+ }
+]

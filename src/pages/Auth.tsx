@@ -1,11 +1,12 @@
 import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { backend } from '../lib/backend'
+import { backend, backendKind } from '../lib/backend'
 import { useApp } from '../lib/app-state'
 import { Button, Card } from '../components/ui'
 
 export function AuthPage() {
-  const [mode, setMode] = useState<'signup' | 'login'>('signup')
+  const [mode, setMode] = useState<'signup' | 'login' | 'forgot'>('signup')
+  const [sent, setSent] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [nameEn, setNameEn] = useState('')
@@ -17,6 +18,7 @@ export function AuthPage() {
     e.preventDefault()
     setError(null)
     try {
+      if (mode === 'forgot') { await backend.requestPasswordReset(email); setSent(true); return }
       const u = mode === 'signup' ? await backend.signUp(email, password, nameEn) : await backend.signIn(email, password)
       setUser(u)
       nav('/')
@@ -35,7 +37,7 @@ export function AuthPage() {
       <Card>
         <div className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-paper p-1">
           {(['signup', 'login'] as const).map((m) => (
-            <button key={m} onClick={() => setMode(m)} className={`min-h-10 rounded-lg text-sm font-medium ${mode === m ? 'bg-card shadow-sm' : 'text-muted'}`}>
+            <button key={m} onClick={() => setMode(m)} className={`min-h-10 rounded-lg text-sm font-medium ${mode === m || (m === 'login' && mode === 'forgot') ? 'bg-card shadow-sm' : 'text-muted'}`}>
               {m === 'signup' ? 'Create account' : 'Sign in'}
             </button>
           ))}
@@ -50,13 +52,16 @@ export function AuthPage() {
           <label className="block text-sm font-medium">Email
             <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} className={field} autoComplete="email" />
           </label>
-          <label className="block text-sm font-medium">Password
+          {mode === 'forgot' && <p className="text-sm text-muted">{sent ? 'If an account exists for this email, a reset link is on its way. Check your inbox.' : "Enter your email and we'll send you a link to choose a new password."}</p>}
+          {mode !== 'forgot' && <label className="block text-sm font-medium">Password
             <input required type="password" value={password} onChange={(e) => setPassword(e.target.value)} className={field} autoComplete={mode === 'signup' ? 'new-password' : 'current-password'} />
-          </label>
-          {error && <p className="text-sm text-red-600">{error}</p>}
-          <Button type="submit" className="w-full">{mode === 'signup' ? 'Start learning' : 'Sign in'}</Button>
+          </label>}
+          {error && <p className="text-sm text-danger">{error}</p>}
+          <Button type="submit" className="w-full" disabled={mode === 'forgot' && sent}>{mode === 'signup' ? 'Start learning' : mode === 'login' ? 'Sign in' : 'Send reset link'}</Button>
+          {mode === 'login' && backendKind === 'supabase' && <button type="button" onClick={() => { setMode('forgot'); setError(null); setSent(false) }} className="w-full text-center text-sm text-muted hover:text-ink">Forgot your password?</button>}
+          {mode === 'forgot' && <button type="button" onClick={() => setMode('login')} className="w-full text-center text-sm text-muted hover:text-ink">Back to sign in</button>}
         </form>
-        <p className="mt-4 text-xs text-muted">Preview build: accounts are stored in this browser only. The first account becomes the admin.</p>
+        {backendKind === 'local' && <p className="mt-4 text-xs text-muted">Preview build: accounts are stored in this browser only. The first account becomes the admin.</p>}
       </Card>
     </div>
   )

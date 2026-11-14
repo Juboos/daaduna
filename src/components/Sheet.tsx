@@ -29,19 +29,19 @@ export const Sheet = forwardRef<SVGSVGElement, {
 }>(function Sheet({ data, reviewInk = [], pins = [], activePin, handlers, liveStroke, liveTone = 'ink', className = '', children }, ref) {
   const H = sheetHeight(data.rows)
   return (
-    <svg ref={ref} viewBox={`0 0 ${SHEET_W} ${H}`} className={`touch-none select-none ${className}`} style={{ touchAction: 'none', background: '#fffdf8' }} {...handlers}>
+    <svg ref={ref} viewBox={`0 0 ${SHEET_W} ${H}`} className={`touch-none select-none ${className}`} style={{ touchAction: 'none', background: '#fffbf4' }} {...handlers}>
       {/* Header: always printed in light colours, like paper. */}
-      <text x={40} y={52} fontSize={26} fontWeight={600} fill="#1d2030" fontFamily="Inter, sans-serif">{data.title}</text>
-      <text x={40} y={84} fontSize={16} fill="#676c7e" fontFamily="Inter, sans-serif">{data.nameEn} · Daaduna</text>
-      <text x={SHEET_W - 40} y={70} fontSize={44} fill="#3d5bd9" textAnchor="start" direction="rtl" className="ar">ضادُنا</text>
+      <text x={40} y={52} fontSize={26} fontWeight={600} fill="#2b2520" fontFamily="Inter, sans-serif">{data.title}</text>
+      <text x={40} y={84} fontSize={16} fill="#7a6d60" fontFamily="Inter, sans-serif">{data.nameEn} · Daaduna</text>
+      <text x={SHEET_W - 40} y={70} fontSize={44} fill="#8b5a3c" textAnchor="start" direction="rtl" className="ar">ضادُنا</text>
       {data.rows.map((r, i) => <Row key={i} row={r} y={HEADER + i * ROW_H} nameAr={data.nameAr} />)}
-      {data.strokes.map((s, i) => <Ink key={i} s={s} color="#1d2030" />)}
-      {liveStroke && <Ink s={liveStroke} color={liveTone === 'review' ? '#d9534a' : '#1d2030'} />}
-      {reviewInk.map((s, i) => <Ink key={`r${i}`} s={s} color="#d9534a" />)}
+      {data.strokes.map((s, i) => <Ink key={i} s={s} color="#2b2520" />)}
+      {liveStroke && <Ink s={liveStroke} color={liveTone === 'review' ? '#c0392b' : '#2b2520'} />}
+      {reviewInk.map((s, i) => <Ink key={`r${i}`} s={s} color="#c0392b" />)}
       {pins.map((p, i) => (
         <g key={`p${i}`} transform={`translate(${p.x} ${p.y})`}>
-          <circle r={15} fill={activePin === i ? '#d9534a' : '#ffffff'} stroke="#d9534a" strokeWidth={3} />
-          <text y={6} textAnchor="middle" fontSize={16} fontWeight={700} fill={activePin === i ? '#fff' : '#d9534a'} fontFamily="Inter, sans-serif">{i + 1}</text>
+          <circle r={15} fill={activePin === i ? '#c0392b' : '#ffffff'} stroke="#c0392b" strokeWidth={3} />
+          <text y={6} textAnchor="middle" fontSize={16} fontWeight={700} fill={activePin === i ? '#fff' : '#c0392b'} fontFamily="Inter, sans-serif">{i + 1}</text>
         </g>
       ))}
       {children}
@@ -62,18 +62,18 @@ function Row({ row, y, nameAr }: { row: SheetRow; y: number; nameAr: string | nu
   const cellW = (right - left) / n
   return (
     <g>
-      {row.label && <text x={right} y={y + 18} fontSize={14} fill="#676c7e" textAnchor="end" fontFamily="Inter, sans-serif">{row.label}</text>}
+      {row.label && <text x={right} y={y + 18} fontSize={14} fill="#7a6d60" textAnchor="end" fontFamily="Inter, sans-serif">{row.label}</text>}
       {/* guide lines: ascender, baseline (bold), descender */}
-      <line x1={left} x2={right} y1={base - 64} y2={base - 64} stroke="#e4e1d8" strokeWidth={1.5} strokeDasharray="6 6" />
-      <line x1={left} x2={right} y1={base} y2={base} stroke="#b9c4ef" strokeWidth={2} />
-      <line x1={left} x2={right} y1={base + 28} y2={base + 28} stroke="#e4e1d8" strokeWidth={1.5} strokeDasharray="6 6" />
+      <line x1={left} x2={right} y1={base - 64} y2={base - 64} stroke="#e8ddcc" strokeWidth={1.5} strokeDasharray="6 6" />
+      <line x1={left} x2={right} y1={base} y2={base} stroke="#d8c3a8" strokeWidth={2} />
+      <line x1={left} x2={right} y1={base + 28} y2={base + 28} stroke="#e8ddcc" strokeWidth={1.5} strokeDasharray="6 6" />
       {ghost && !row.empty && Array.from({ length: n }, (_, k) => (
         // Cells fill from the right, like Arabic writing. The first one is the darker model.
         <text key={k} x={right - cellW * k - cellW / 2} y={base} textAnchor="middle" fontSize={ghost.length > 3 ? 70 : 88}
-          fill={k === 0 ? '#9aa6d9' : '#dcdff0'} direction="rtl" className="ar">{ghost}</text>
+          fill={k === 0 ? '#b79a80' : '#ece2d4'} direction="rtl" className="ar">{ghost}</text>
       ))}
       {row.ghost === '$name' && !nameAr && (
-        <text x={(left + right) / 2} y={base - 20} textAnchor="middle" fontSize={18} fill="#676c7e" fontFamily="Inter, sans-serif">Your Arabic name appears here once your tutor has written it.</text>
+        <text x={(left + right) / 2} y={base - 20} textAnchor="middle" fontSize={18} fill="#7a6d60" fontFamily="Inter, sans-serif">Your Arabic name appears here once your tutor has written it.</text>
       )}
     </g>
   )
@@ -98,7 +98,7 @@ export async function sheetToPng(svg: SVGSVGElement, width = 600): Promise<Blob>
   c.width = width
   c.height = Math.round((width * vb.height) / vb.width)
   const g = c.getContext('2d')!
-  g.fillStyle = '#fffdf8'
+  g.fillStyle = '#fffbf4'
   g.fillRect(0, 0, c.width, c.height)
   g.drawImage(img, 0, 0, c.width, c.height)
   URL.revokeObjectURL(url)
